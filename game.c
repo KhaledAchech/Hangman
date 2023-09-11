@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "dict.h"
 
 int size = 3;
 char words[][200] = {"tree", "house", "car"};
@@ -14,14 +15,21 @@ char * getWord();
 
 int main()
 {
-    printf("Welcome to hangman:\n");
-    char *word = getWord();
+// TO DO: Need to fix the dict/map implementation make it more reliable 
+    
+//	printf("Welcome to hangman:\n");
+//    char *word = getWord();
 
-	printf("The word that I choose have %d characters. You may start guessing the characters.\n", strlen(word));
-	printf("You can guess the alphabets in the word one by one or you may guess the whole word.\n\n", strlen(word));
-	
-	int maxguesses = 5;
-	play(maxguesses, word);
+//	printf("The word that I choose have %d characters. You may start guessing the characters.\n", strlen(word));
+//	printf("You can guess the alphabets in the word one by one or you may guess the whole word.\n\n", strlen(word));
+//	
+//	int maxguesses = 5;
+//	play(maxguesses, word);
+	insert("X", "_");
+	insert("Z", "_");
+	insert("Y", "_");
+	insert("C", "_");
+	printMap();
     return 0;
 }
 
@@ -91,6 +99,10 @@ void play (int guesses, char *word)
 	{	
 		printBlanks(strlen(word));
 		scanf("%s", guess);
+		if (strlen(guess) == 1)
+		{
+			
+		}
 		value = strcmp(guess, word);
 		if (value != 0) 
 		{ 
